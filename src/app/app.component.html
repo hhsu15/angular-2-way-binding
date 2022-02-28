@@ -1,0 +1,33 @@
+<h1 id="two-way">Two-way Binding</h1>
+<div id="two-way-1">
+  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <div [style.font-size.px]="fontSizePx">Resizable Text(paprent component)</div>
+  <!-- <label>FontSize (px): <input [(ngModel)]="fontSizePx"></label> -->
+</div>
+<br />
+<div id="two-way-2">
+  <h2>De-sugared two-way binding</h2>
+  <app-sizer [size]="fontSizePx" (sizeChange)="($event)"></app-sizer>
+</div>
+
+<input type='text' placeholder="things to send to Child" #toChild/>
+<button type='button' (click)="sendToChild(toChild.value)">Send to Child</button>
+
+<div>
+  <app-hello 
+  [greetingFromParent]="helloMyChild"
+  (greetingEmitter)="getGreetingFromChild($event)"
+  [(x)]="parentX"
+  >
+</app-hello>
+
+</div>
+
+<p>{{greetingFromChild}}</p>
+
+<p>Two way binding x: {{parentX}}</p>
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

@@ -1,0 +1,23 @@
+<div>
+<p [style.font-size.px]="size" #tvar>The size of font is {{size}}. This is property binding</p>
+
+
+<button (click)="makeBigger()">Increse font size</button>
+</div>
+
+<p>This is from the Input: {{greetingFromParent}}</p>
+
+
+<div>
+<input #inputVar placeholder="say something to the parent" />
+<div>
+<button (click)="sendGreeting(inputVar.value)">Send to Parent</button>
+</div>
+
+</div>
+
+<div>
+<button (click)="sendXtoParent(1)">Two way</button>
+</div>
+
+
